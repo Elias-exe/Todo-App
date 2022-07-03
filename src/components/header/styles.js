@@ -8,4 +8,5 @@ export const Container = styled.header`
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
   font-size: 32px;
+  padding-bottom: 58px;
 `;
