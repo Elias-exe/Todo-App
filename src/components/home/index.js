@@ -1,5 +1,11 @@
+import { Container } from './styles';
+import Header from '../header';
+
 export default function Home() {
   return (
-    <h1>Todo App</h1>
+    <Container>
+      <Header />
+    </Container>
+
   );
 }
