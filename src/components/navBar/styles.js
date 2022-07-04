@@ -5,11 +5,12 @@ export const NavigationBar = styled.nav`
   width: 100%;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #BDBDBD;
 
   button{
     border: none;
     background: transparent;
-    padding: 0 45px;
+    padding: 15px 45px;
     font-size: 14px;
   }
 `;
