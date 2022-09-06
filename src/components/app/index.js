@@ -4,7 +4,6 @@ import GlobalStyles from '../../assets/styles/global';
 import defaultTheme from '../../assets/styles/themes/default';
 import { TodoProvider } from '../context';
 import Rotas from '../../rotas';
-import Home from '../../pages/home';
 
 export default function App() {
   return (
@@ -12,7 +11,6 @@ export default function App() {
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyles />
         <TodoProvider>
-          <Home />
           <Rotas />
         </TodoProvider>
       </ThemeProvider>
