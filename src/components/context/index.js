@@ -27,7 +27,8 @@ export function TodoProvider({ children }) {
 
   const completeTodo = (todo) => {
     if (todo.target.checked === true) {
-      console.log('Checado!');
+      const found = todoList.find((oldTodo) => oldTodo.id === todo.target.id);
+      console.log(found);
     }
   };
 
