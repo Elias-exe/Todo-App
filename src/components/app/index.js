@@ -1,17 +1,22 @@
+import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { Container } from './styles';
-import defaultTheme from '../../assets/styles/themes/default';
 import GlobalStyles from '../../assets/styles/global';
+import defaultTheme from '../../assets/styles/themes/default';
+import { TodoProvider } from '../context';
+import Rotas from '../../rotas';
 import Home from '../../pages/home';
 
 export default function App() {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <GlobalStyles />
-      <Container>
-        <Home />
-      </Container>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={defaultTheme}>
+        <GlobalStyles />
+        <TodoProvider>
+          <Home />
+          <Rotas />
+        </TodoProvider>
+      </ThemeProvider>
+    </BrowserRouter>
 
   );
 }

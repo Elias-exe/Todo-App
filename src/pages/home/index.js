@@ -2,32 +2,31 @@ import {
   useState, useContext,
 } from 'react';
 import { TodoContext } from '../../components/context';
-import { Container, SearchBarContainer, NavigationBar } from './styles';
+import { Container, SearchBarContainer } from './styles';
+import NavBar from '../../components/navBar';
 import Header from '../../components/header';
 
 export default function Home() {
   const { addToList, todoList } = useContext(TodoContext);
   const [todoText, setTodoText] = useState('');
 
-  const addHandler = () => {
-    addToList(todoText);
-  };
+  function handleChangeTodoText(event) {
+    setTodoText(event.target.value);
+  }
 
-  console.log(todoList);
+  function handleAddNewTodo() {
+    addToList(todoText);
+  }
 
   return (
     <Container>
       <Header />
 
-      <NavigationBar>
-        <button type="button" id="allButton">All</button>
-        <button type="button" id="activeButton">Active</button>
-        <button type="button" id="completedButton">Completed</button>
-      </NavigationBar>
+      <NavBar />
 
       <SearchBarContainer>
-        <input type="text" placeholder="add details" onChange={(e) => setTodoText(e.target.value)} />
-        <button type="button" onClick={addHandler}>Add</button>
+        <input type="text" placeholder="add details" onChange={handleChangeTodoText} />
+        <button type="button" onClick={handleAddNewTodo}>Add</button>
       </SearchBarContainer>
       <div className="todoContainer">
         {todoList.map((todo) => (
@@ -35,9 +34,9 @@ export default function Home() {
             <input
               type="checkbox"
               id={todo.id}
-              name={todo.tarefa}
+              name={todo.todoName}
             />
-            {todo.tarefa}
+            {todo.todoName}
             <br />
           </label>
         ))}

@@ -7,10 +7,13 @@ export const NavigationBar = styled.nav`
   align-items: center;
   border-bottom: 1px solid #BDBDBD;
 
-  button{
+
+  a{
     border: none;
     background: transparent;
     padding: 15px 45px;
     font-size: 14px;
+    color: black;
+    text-decoration: none;
   }
 `;

@@ -29,6 +29,8 @@ export function TodoProvider({ children }) {
     addToList,
   }));
 
+  console.log(todoList);
+
   return (
     <TodoContext.Provider value={value}>
       {children}
