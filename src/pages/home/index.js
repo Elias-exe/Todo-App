@@ -7,7 +7,7 @@ import NavBar from '../../components/navBar';
 import Header from '../../components/header';
 
 export default function Home() {
-  const { addToList, todoList } = useContext(TodoContext);
+  const { addToList, todoList, completeTodo } = useContext(TodoContext);
   const [todoText, setTodoText] = useState('');
 
   function handleChangeTodoText(event) {
@@ -35,6 +35,7 @@ export default function Home() {
               type="checkbox"
               id={todo.id}
               name={todo.todoName}
+              onClick={completeTodo}
             />
             {todo.todoName}
             <br />

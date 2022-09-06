@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 export const TodoContext = createContext({
   todoList: [localStorage.getItem('list')],
   addToList: () => {},
+  completeTodo: () => {},
 });
 
 export function TodoProvider({ children }) {
@@ -24,9 +25,16 @@ export function TodoProvider({ children }) {
     setTodoList(oldTodoList);
   };
 
+  const completeTodo = (todo) => {
+    if (todo.target.checked === true) {
+      console.log('Checado!');
+    }
+  };
+
   const value = useMemo(() => ({
     todoList,
     addToList,
+    completeTodo,
   }));
 
   return (
