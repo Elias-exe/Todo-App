@@ -26,8 +26,10 @@ export function TodoProvider({ children }) {
     setTodoList(oldTodoList);
   };
 
-  const completeTodo = () => {
-    console.log('Checado!');
+  const completeTodo = (todo) => {
+    const idNumber = Number(todo.target.id);
+    const ae = todoList.find((oldTodoList) => oldTodoList.id === idNumber);
+    console.log(ae);
   };
 
   const value = useMemo(() => ({
