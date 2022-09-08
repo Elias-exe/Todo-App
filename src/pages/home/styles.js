@@ -9,6 +9,7 @@ export const Container = styled.div`
   display: inline-block;
   font-size: 18px;
   width: 100%;
+  margin-top: 32px;
 
   input{
     margin-right: 7px;
@@ -20,7 +21,6 @@ export const Container = styled.div`
 export const SearchBarContainer = styled.div`
 width: 100%;
 margin-top: 18px;
-margin-bottom: 32px;
 display: flex;
 justify-content: space-between;
   input{
@@ -30,6 +30,7 @@ justify-content: space-between;
     border: 1px solid #BDBDBD;
     border-radius: 12px;
     margin-right: 25px;
+
   }
   button{
     padding: 20px;

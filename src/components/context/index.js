@@ -11,6 +11,7 @@ export const TodoContext = createContext({
 
 export function TodoProvider({ children }) {
   const [todoList, setTodoList] = useState([]);
+
   const addToList = (todoName) => {
     if (!todoName.length) return;
 
@@ -25,11 +26,8 @@ export function TodoProvider({ children }) {
     setTodoList(oldTodoList);
   };
 
-  const completeTodo = (todo) => {
-    if (todo.target.checked === true) {
-      const found = todoList.find((oldTodo) => oldTodo.id === todo.target.id);
-      console.log(found);
-    }
+  const completeTodo = () => {
+    console.log('Checado!');
   };
 
   const value = useMemo(() => ({

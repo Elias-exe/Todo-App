@@ -1,5 +1,6 @@
 import Header from '../header';
 import NavBar from '../navBar';
+
 import { Container } from '../../pages/home/styles';
 
 export default function CompleteList() {
