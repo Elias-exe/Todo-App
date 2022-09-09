@@ -20,7 +20,7 @@ export default function ActiveList() {
                   type="checkbox"
                   id={todo.id}
                   name={todo.todoName}
-                  onClick={completeTodo}
+                  onClick={() => completeTodo(todo)}
                 />
                 {todo.todoName}
                 <br />

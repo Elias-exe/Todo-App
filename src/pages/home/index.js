@@ -35,7 +35,7 @@ export default function Home() {
               type="checkbox"
               id={todo.id}
               name={todo.todoName}
-              onClick={completeTodo}
+              onClick={() => completeTodo(todo)}
             />
             {todo.todoName}
             <br />

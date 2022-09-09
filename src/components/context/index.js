@@ -27,9 +27,12 @@ export function TodoProvider({ children }) {
   };
 
   const completeTodo = (todo) => {
-    const idNumber = Number(todo.target.id);
-    const ae = todoList.find((oldTodoList) => oldTodoList.id === idNumber);
-    console.log(ae);
+    const ae = todoList.find(
+      (oldTodoList) => oldTodoList.id === todo.id,
+    );
+    ae.completed = !todo.completed;
+    const oldTodoList = todoList.slice();
+    setTodoList(oldTodoList);
   };
 
   const value = useMemo(() => ({
