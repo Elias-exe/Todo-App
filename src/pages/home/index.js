@@ -7,7 +7,7 @@ import NavBar from '../../components/navBar';
 import Header from '../../components/header';
 
 export default function Home() {
-  const { addToList, todoList, completeTodo } = useContext(TodoContext);
+  const { handleAddToList, todoList, handleCompleteTodo } = useContext(TodoContext);
   const [todoText, setTodoText] = useState('');
 
   function handleChangeTodoText(event) {
@@ -15,7 +15,7 @@ export default function Home() {
   }
 
   function handleAddNewTodo() {
-    addToList(todoText);
+    handleAddToList(todoText);
   }
 
   return (
@@ -25,7 +25,7 @@ export default function Home() {
       <NavBar />
 
       <SearchBarContainer>
-        <input type="text" placeholder="add details" onChange={handleChangeTodoText} />
+        <input type="text" placeholder="Add details" onChange={handleChangeTodoText} />
         <button type="button" onClick={handleAddNewTodo}>Add</button>
       </SearchBarContainer>
       <div className="todoContainer">
@@ -35,7 +35,8 @@ export default function Home() {
               type="checkbox"
               id={todo.id}
               name={todo.todoName}
-              onClick={() => completeTodo(todo)}
+              onClick={() => handleCompleteTodo(todo)}
+              defaultChecked={todo.completed}
             />
             {todo.todoName}
             <br />

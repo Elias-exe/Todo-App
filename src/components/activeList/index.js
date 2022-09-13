@@ -5,7 +5,7 @@ import { Container } from '../../pages/home/styles';
 import { TodoContext } from '../context';
 
 export default function ActiveList() {
-  const { todoList, completeTodo } = useContext(TodoContext);
+  const { todoList, handleCompleteTodo } = useContext(TodoContext);
 
   return (
     <Container>
@@ -20,7 +20,8 @@ export default function ActiveList() {
                   type="checkbox"
                   id={todo.id}
                   name={todo.todoName}
-                  onClick={() => completeTodo(todo)}
+                  onClick={() => handleCompleteTodo(todo)}
+                  defaultChecked={todo.completed}
                 />
                 {todo.todoName}
                 <br />

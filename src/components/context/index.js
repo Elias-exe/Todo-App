@@ -1,18 +1,20 @@
 import {
-  createContext, useState, useMemo,
+  createContext, useState, useMemo, useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
 
 export const TodoContext = createContext({
-  todoList: [localStorage.getItem('list')],
-  addToList: () => {},
-  completeTodo: () => {},
+  todoList: [JSON.parse(sessionStorage.getItem('list'))],
+  handleAddToList: () => {},
+  handleCompleteTodo: () => {},
+  handleDeleteTodo: () => {},
+  handleDeleteAllTodos: () => {},
 });
 
 export function TodoProvider({ children }) {
   const [todoList, setTodoList] = useState([]);
 
-  const addToList = (todoName) => {
+  function handleAddToList(todoName) {
     if (!todoName.length) return;
 
     const todo = {
@@ -24,21 +26,46 @@ export function TodoProvider({ children }) {
     const oldTodoList = todoList.slice();
     oldTodoList.push(todo);
     setTodoList(oldTodoList);
-  };
+  }
 
-  const completeTodo = (todo) => {
-    const ae = todoList.find(
+  function handleCompleteTodo(todo) {
+    const handleChangeStatusTodo = todoList.find(
       (oldTodoList) => oldTodoList.id === todo.id,
     );
-    ae.completed = !todo.completed;
+    handleChangeStatusTodo.completed = !todo.completed;
+
     const oldTodoList = todoList.slice();
     setTodoList(oldTodoList);
-  };
+  }
+
+  function handleDeleteTodo(todo) {
+    const filteredTodo = todoList.filter((oldTodo) => (
+      oldTodo.id !== todo.id
+    ));
+    setTodoList(filteredTodo);
+  }
+
+  function handleDeleteAllTodos() {
+    const filteredTodo = todoList.filter((oldTodo) => (
+      oldTodo.completed !== true
+    ));
+    setTodoList(filteredTodo);
+  }
+
+  useEffect(() => {
+    setTodoList(JSON.parse(sessionStorage.getItem('list')));
+  }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem('list', JSON.stringify(todoList));
+  }, [todoList]);
 
   const value = useMemo(() => ({
     todoList,
-    addToList,
-    completeTodo,
+    handleAddToList,
+    handleCompleteTodo,
+    handleDeleteTodo,
+    handleDeleteAllTodos,
   }));
 
   return (
