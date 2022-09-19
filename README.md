@@ -8,17 +8,18 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://todo-app-b7d92.web.app">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://todo-app-b7d92.web.app">
       Solution
     </a>
     <span> | </span>
     <a href="https://devchallenges.io/challenges/hH6PbOHBdPm6otzw2De5">
       Challenge
     </a>
+
   </h3>
 </div>
 
@@ -37,7 +38,8 @@
 
 ## Overview
 
-![screenshot](../Screenshot_2.png)
+![Screenshot_2](https://user-images.githubusercontent.com/50485398/191134705-a4f9913d-02af-4c44-926f-d6efdb856f43.png)
+
 
 - Where can I see your demo?
 
